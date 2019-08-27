@@ -13,35 +13,52 @@
 </head>
 
 <body>
-<div class="container">
-    <div class="user-container"></div>
-    <div class="friends"></div>
-    <div class="quote-container"></div>
-    <div class="content-container">
-        <div class="pokemon-container"></div>
-        <div class="meat-text"></div>
-</div>
-</div>
+    <div class="container">
+        <div class="user-container"></div>
+        <div class="friends"></div>
+        <div class="quote-container"></div>
+        <div class="content-container">
+            <div class="pokemon-container"></div>
+            <div class="meat-text"></div>
+        </div>
+    </div>
 
-    <script id="user-template" type="text/x-handlebars-template">
-        {{}}
+    <div class="buttons">
+        <button id="load" onclick="manager.loadData()">Load User Data</button>
+        <button id="display" onclick="renderer.render(manager.data)">Display User</button>
+    </div>
+
+
+    <!-- Handlebar Templates Below -->
+    <script class="user-template" type="text/x-handlebars-template">
+        <div>
+            <img id="profile-pic" src="{{picture}}" alt=""></div>
+        <div class="user-info">{{name}}<br>{{location}} </div>
+    </div>
     </script>
 
-    <script id="friends-template" type="text/x-handlebars-template">
-        {{}}
+    <script class="friends-template" type="text/x-handlebars-template">
+        <ol>
+            <li>Friends:</li>
+       {{#each users}}
+        <li>{{name}}</li>
+        {{/each}}
+    </ol>
     </script>
 
-    <script id="quote-template" type="text/x-handlebars-template">
-        {{}}
+    <script class="quote-template" type="text/x-handlebars-template">
+        <p>{{quote}},</p>
     </script>
 
-    <script id="pokemon-template" type="text/x-handlebars-template">
-        {{}}
+    <script class="pokemon-template" type="text/x-handlebars-template">
+        <div id="pokemon-image"><img src={{picture}} alt="pokemon"></div>
+        <div id="pokemon-text">Favorite Pokemon: {{name}}</div>
     </script>
 
-    <script id="meat-template" type="text/x-handlebars-template">
-        {{}}
+    <script class="meat-template" type="text/x-handlebars-template">
+        <div class="meat-text">{{meat}}</div>
     </script>
+    <!-- End of Handlebars Templates -->
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
